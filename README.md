@@ -113,9 +113,9 @@ Tiga model klasifikasi dibangun dan dibandingkan:
 
 | Model | Accuracy | Precision | Recall | F1-Score | Deskripsi |
 |-------|----------|-----------|--------|----------|-----------|
-| Logistic Regression | 84.8% | 58.4% | 88.2% | 70.3% | Baseline, mudah diinterpretasi |
-| Random Forest | 97.5% | 89.9% | 98.8% | 94.1% | Ensemble tree, non-linear |
-| **XGBoost** | **97.5%** | **91.6%** | **96.8%** | **94.1%** | **Gradient boosting, terbaik** |
+| Logistic Regression | 80.1% | 64.2% | 22.0% | 32.8% | Baseline, mudah diinterpretasi |
+| Random Forest | 85.3% | 83.6% | 41.5% | 55.5% | Ensemble tree, non-linear |
+| **XGBoost** | **85.7%** | **81.0%** | **45.6%** | **58.4%** | **Gradient boosting, terbaik** |
 
 > 📌 **Evaluasi:** Seluruh model diuji pada data hold-out 20% menggunakan empat metrik — Accuracy, Precision, Recall, dan F1-Score.
 
@@ -126,11 +126,11 @@ Tiga model klasifikasi dibangun dan dibandingkan:
 | Insight | Detail |
 |---------|--------|
 | 📉 **Churn Rate** | 20.4% (1 dari 5 nasabah berhenti) |
-| 🌍 **Geografi** | Germany churn tertinggi (32.4%), hampir 2x lipat France & Spain |
-| 👴 **Usia** | Kelompok 50-59 tahun paling rentan (72.1%) |
-| 👩 **Gender** | Perempuan churn 26.7% vs Laki-laki 15.1% |
-| 💤 **Keaktifan** | Nasabah tidak aktif churn 32.2% vs aktif 9.2% |
-| 📦 **Produk** | 3 produk churn 100%, 4 produk 100% |
+| 🌍 **Geografi** | Germany churn tertinggi (32.4%), hampir 2x lipat France (16.2%) & Spain (16.6%) |
+| 👴 **Usia** | Rata-rata usia nasabah churn 44.8 tahun, puncak di kelompok 50-59 tahun |
+| 👩 **Gender** | Perempuan churn 25.1% vs Laki-laki 16.5% |
+| 💤 **Keaktifan** | Nasabah tidak aktif churn 26.9% vs aktif 14.3% |
+| 📦 **Produk** | 3 produk churn 82.7%, 4 produk churn 100% |
 
 ---
 
@@ -165,16 +165,21 @@ php artisan key:generate
 # 6. Install Python dependencies
 pip install -r python/requirements.txt
 
-# 7. Generate dataset & jalankan analisis
-python python/generate_data.py
+# 7. Download dataset Bank Churn dari Kaggle
+#    (butuh login Kaggle, lihat petunjuk di dataset/README.md)
+python python/download_kaggle.py
+
+# 8. Jalankan EDA + Modelling
 python python/analysis.py
 
-# 8. Build frontend assets
+# 9. Build frontend assets
 npm run build
 
-# 9. Jalankan development server
+# 10. Jalankan development server
 php artisan serve
 ```
+
+> ⚠️ **Catatan Dataset:** Dataset `bank_churn.csv` tidak di-commit ke repository karena berasal dari Kaggle. Kamu harus mendownload dataset terlebih dahulu (langkah 7) sebelum menjalankan `analysis.py`.
 
 Buka browser di **http://localhost:8000**
 
@@ -194,12 +199,13 @@ npm run dev
 
 ```
 python/
-├── generate_data.py    # Generate dataset 10.000 nasabah
+├── download_kaggle.py  # Download dataset asli dari Kaggle
 ├── analysis.py         # EDA + Training 3 model + Export JSON
 └── requirements.txt    # Dependencies Python
 
 dataset/
-└── bank_churn.csv      # Dataset (10.000 rows)
+├── README.md           # Petunjuk download dataset
+└── bank_churn.csv      # Dataset dari Kaggle (download manual/otomatis)
 
 public/data/
 ├── eda_results.json    # Hasil EDA (dibaca Laravel)
@@ -208,14 +214,14 @@ public/data/
 ```
 
 ```bash
-# Generate dataset
-python python/generate_data.py
+# Download dataset (butuh login Kaggle)
+python python/download_kaggle.py
 
 # Jalankan EDA + Modelling + Export
 python python/analysis.py
 ```
 
-> 💡 Untuk dataset asli Kaggle, download dari [kaggle.com/datasets/mathchi/churn-modelling](https://www.kaggle.com/datasets/mathchi/churn-modelling) dan simpan sebagai `dataset/bank_churn.csv`.
+> 💡 Untuk dataset asli Kaggle, download dari [kaggle.com/datasets/mathchi/churn-modelling](https://www.kaggle.com/datasets/mathchi/churn-modelling) dan simpan sebagai `dataset/bank_churn.csv`. Lihat petunjuk lengkap di `dataset/README.md`.
 
 ---
 

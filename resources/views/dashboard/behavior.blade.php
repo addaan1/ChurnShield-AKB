@@ -92,8 +92,9 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
 const isDark = document.documentElement.classList.contains('dark');
-const textColor = isDark ? '#94A3B8' : '#64748B';
-const gridColor = isDark ? '#334155' : '#E2E8F0';
+const textColor = isDark ? '#94A3B8' : '#475569';
+const gridColor = isDark ? '#334155' : '#CBD5E1';
+const gridConfig = { borderColor: gridColor, strokeDashArray: 3 };
 
 new ApexCharts(document.querySelector("#activityChart"), {
     series: [
@@ -123,7 +124,7 @@ new ApexCharts(document.querySelector("#activityChart"), {
         axisBorder: { show: false }
     },
     yaxis: { labels: { style: { colors: textColor } } },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     legend: { labels: { colors: textColor } },
 }).render();
 
@@ -141,7 +142,7 @@ new ApexCharts(document.querySelector("#productChart"), {
     colors: ['#F59E0B'],
     xaxis: { labels: { style: { colors: textColor } }, axisBorder: { show: false } },
     yaxis: { labels: { style: { colors: textColor }, formatter: (val) => val + '%' }, max: 100 },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     dataLabels: { enabled: true, formatter: (val) => val + '%', style: { colors: ['#fff'] } },
 }).render();
 
@@ -165,7 +166,7 @@ new ApexCharts(document.querySelector("#productGroupedChart"), {
         axisBorder: { show: false }
     },
     yaxis: { labels: { style: { colors: textColor } } },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     legend: { labels: { colors: textColor } },
 }).render();
 

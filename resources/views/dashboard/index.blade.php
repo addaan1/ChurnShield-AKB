@@ -131,8 +131,10 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
 const isDark = document.documentElement.classList.contains('dark');
-const textColor = isDark ? '#94A3B8' : '#64748B';
-const gridColor = isDark ? '#334155' : '#E2E8F0';
+const textColor = isDark ? '#94A3B8' : '#475569';
+const gridColor = isDark ? '#334155' : '#CBD5E1';
+const gridConfig = { borderColor: gridColor, strokeDashArray: 3 };
+const labelStyle = { style: { colors: textColor } };
 
 new ApexCharts(document.querySelector("#churnDonut"), {
     series: [{{ $data['nasabahSetia'] }}, {{ $data['nasabahChurn'] }}],
@@ -196,7 +198,7 @@ new ApexCharts(document.querySelector("#geographyChart"), {
     yaxis: {
         labels: { style: { colors: textColor } },
     },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     dataLabels: {
         enabled: true,
         formatter: (val) => val + '%',
@@ -236,7 +238,7 @@ new ApexCharts(document.querySelector("#ageChart"), {
             formatter: (val) => val + '%'
         },
     },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     dataLabels: {
         enabled: true,
         formatter: (val) => val + '%',

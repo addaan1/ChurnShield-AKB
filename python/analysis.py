@@ -30,6 +30,17 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 def load_data():
     """Load dataset dari CSV"""
     print("Loading dataset...")
+
+    if not os.path.exists(DATASET_PATH):
+        print(f"\nERROR: Dataset tidak ditemukan di {DATASET_PATH}")
+        print("\nDataset harus didownload dari Kaggle:")
+        print("https://www.kaggle.com/datasets/mathchi/churn-modelling")
+        print("\nCara download:")
+        print("  1. Login Kaggle dan download manual, atau")
+        print("  2. Jalankan: python python/download_kaggle.py")
+        print("\nPastikan file tersimpan sebagai: dataset/bank_churn.csv")
+        raise FileNotFoundError(f"Dataset not found: {DATASET_PATH}")
+
     df = pd.read_csv(DATASET_PATH)
     print(f"Dataset loaded: {df.shape[0]} rows, {df.shape[1]} columns")
     print(f"Columns: {list(df.columns)}")
