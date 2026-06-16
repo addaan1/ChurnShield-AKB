@@ -10,7 +10,7 @@ Cara penggunaan:
 3. Jalankan: python python/download_kaggle.py
 
 Alternatif manual:
-- Download langsung dari: https://www.kaggle.com/datasets/mathchi/churn-modelling
+- Download langsung dari: https://www.kaggle.com/datasets/shubh0799/churn-modelling
 - Ekstrak dan simpan file Churn_Modelling.csv sebagai dataset/bank_churn.csv
 """
 
@@ -29,7 +29,7 @@ print("Mendownload dataset Bank Churn dari Kaggle...")
 print("Pastikan kamu sudah login ke Kaggle (lihat petunjuk di file ini).")
 
 try:
-    path = kagglehub.dataset_download("mathchi/churn-modelling")
+    path = kagglehub.dataset_download("shubh0799/churn-modelling")
     print(f"Dataset downloaded to: {path}")
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -59,6 +59,6 @@ except Exception as e:
     print("1. Belum login ke Kaggle")
     print("2. Tidak ada koneksi internet")
     print("\nCoba download manual dari:")
-    print("https://www.kaggle.com/datasets/mathchi/churn-modelling")
+    print("https://www.kaggle.com/datasets/shubh0799/churn-modelling")
     print("Lalu simpan sebagai dataset/bank_churn.csv")
     sys.exit(1)

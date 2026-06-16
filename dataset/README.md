@@ -4,14 +4,14 @@
 
 Dataset yang digunakan adalah **Bank Churn Dataset** dari Kaggle:
 
-🔗 **URL:** https://www.kaggle.com/datasets/mathchi/churn-modelling
+🔗 **URL:** https://www.kaggle.com/datasets/shubh0799/churn-modelling
 
 ## Cara Mendapatkan Dataset
 
 ### Opsi 1: Download Otomatis (Direkomendasikan)
 
 1. Login ke akun Kaggle di https://www.kaggle.com
-2. Buka halaman dataset: https://www.kaggle.com/datasets/mathchi/churn-modelling
+2. Buka halaman dataset: https://www.kaggle.com/datasets/shubh0799/churn-modelling
 3. Klik tombol **Download** atau buat API token
 4. Simpan file API token (`kaggle.json`) di:
    - **Windows:** `C:\Users\<username>\.kaggle\kaggle.json`

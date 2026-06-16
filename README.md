@@ -87,7 +87,7 @@ Project ini dibangun untuk mata kuliah **Analisis Keputusan Bisnis** dan menggun
 
 ## 📊 Dataset
 
-- **Sumber:** [Bank Churn Dataset (Kaggle)](https://www.kaggle.com/datasets/mathchi/churn-modelling)
+- **Sumber:** [Bank Churn Dataset (Kaggle)](https://www.kaggle.com/datasets/shubh0799/churn-modelling)
 - **Jumlah Data:** 10.000 nasabah
 - **Variabel:** CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary, Exited (target)
 
@@ -221,7 +221,7 @@ python python/download_kaggle.py
 python python/analysis.py
 ```
 
-> 💡 Untuk dataset asli Kaggle, download dari [kaggle.com/datasets/mathchi/churn-modelling](https://www.kaggle.com/datasets/mathchi/churn-modelling) dan simpan sebagai `dataset/bank_churn.csv`. Lihat petunjuk lengkap di `dataset/README.md`.
+> 💡 Untuk dataset asli Kaggle, download dari [kaggle.com/datasets/shubh0799/churn-modelling](https://www.kaggle.com/datasets/shubh0799/churn-modelling) dan simpan sebagai `dataset/bank_churn.csv`. Lihat petunjuk lengkap di `dataset/README.md`.
 
 ---
 
