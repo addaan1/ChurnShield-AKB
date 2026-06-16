@@ -21,6 +21,12 @@
 
 ---
 
+<p align="center">
+  <img src="docs/screenshot-landing.png" alt="ChurnShield Landing Page" width="100%">
+</p>
+
+---
+
 ## 📋 Daftar Isi
 
 - [Tentang Project](#-tentang-project)
