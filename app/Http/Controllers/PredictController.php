@@ -14,7 +14,7 @@ class PredictController extends Controller
     public function predict(Request $request)
     {
         $validated = $request->validate([
-            'credit_score' => 'required|numeric|min:300|max:900',
+            'credit_score' => 'required|numeric|min:300|max:850',
             'age' => 'required|numeric|min:18|max:100',
             'tenure' => 'required|numeric|min:0|max:10',
             'balance' => 'required|numeric|min:0',
@@ -22,6 +22,8 @@ class PredictController extends Controller
             'geography' => 'required|in:France,Germany,Spain',
             'gender' => 'required|in:Male,Female',
             'is_active' => 'required|in:0,1',
+            'has_cr_card' => 'required|in:0,1',
+            'estimated_salary' => 'required|numeric|min:0',
         ]);
 
         $weightsPath = public_path('data/model_weights.json');
@@ -43,9 +45,9 @@ class PredictController extends Controller
             (float) $validated['tenure'],
             (float) $validated['balance'],
             (float) $validated['num_products'],
-            1.0,
+            (float) $validated['has_cr_card'],
             (float) $validated['is_active'],
-            100000.0,
+            (float) $validated['estimated_salary'],
         ];
 
         $scaler = $weights['scaler'];

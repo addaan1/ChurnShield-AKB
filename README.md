@@ -8,13 +8,13 @@
 
 ---
 
-[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
 [![XGBoost](https://img.shields.io/badge/XGBoost-3.0-00B4D8?style=for-the-badge)](https://xgboost.readthedocs.io)
 [![ApexCharts](https://img.shields.io/badge/ApexCharts-5-6366F1?style=for-the-badge)](https://apexcharts.com)
-[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 </div>
@@ -75,11 +75,11 @@ Project ini dibangun untuk mata kuliah **Analisis Keputusan Bisnis** dan menggun
 
 | Layer | Technology |
 |-------|-----------|
-| **Backend** | Laravel 13 (PHP 8.4) |
+| **Backend** | Laravel 12 (PHP 8.4) |
 | **Frontend CSS** | Tailwind CSS 4 |
 | **Charts** | ApexCharts 5 |
 | **Animations** | AOS (Animate On Scroll) |
-| **Build Tool** | Vite 8 |
+| **Build Tool** | Vite 6 |
 | **Fonts** | Inter + Poppins (Bunny Fonts) |
 | **ML Pipeline** | Python 3.12, scikit-learn, XGBoost, pandas, numpy |
 
@@ -114,8 +114,8 @@ Tiga model klasifikasi dibangun dan dibandingkan:
 | Model | Accuracy | Precision | Recall | F1-Score | Deskripsi |
 |-------|----------|-----------|--------|----------|-----------|
 | Logistic Regression | 70.8% | 38.3% | 71.7% | 50.0% | Baseline, mudah diinterpretasi |
-| Random Forest | 84.2% | 60.3% | 66.3% | 63.2% | Ensemble tree, non-linear |
 | **Random Forest** | **84.2%** | **60.3%** | **66.3%** | **63.2%** | **Ensemble tree, terbaik** |
+| XGBoost | 81.5% | 53.8% | 66.3% | 59.4% | Gradient boosting |
 
 > 📌 **Evaluasi:** Seluruh model diuji pada data hold-out 20% menggunakan empat metrik — Accuracy, Precision, Recall, dan F1-Score.
 
@@ -255,11 +255,11 @@ python python/analysis.py
 
 ## 💼 Rekomendasi Bisnis
 
-1. **🎯 Targetkan Segmen Risiko Tinggi** — Prioritaskan nasabah Germany dan usia 50-59 menggunakan skor probabilitas churn dari model XGBoost.
+1. **🎯 Targetkan Segmen Risiko Tinggi** — Prioritaskan nasabah Germany dan usia 50-59 menggunakan skor probabilitas churn dari model Random Forest.
 
-2. **🔄 Reaktivasi Nasabah Pasif** — Jalankan kampanye keterlibatan bagi nasabah tidak aktif yang churn 32.2%, melalui penawaran, notifikasi, dan onboarding ulang.
+2. **🔄 Reaktivasi Nasabah Pasif** — Jalankan kampanye keterlibatan bagi nasabah tidak aktif yang churn 26.9%, melalui penawaran, notifikasi, dan onboarding ulang.
 
-3. **🤖 Operasionalkan Model Prediktif** — Terapkan XGBoost untuk menghasilkan daftar nasabah berisiko secara berkala agar intervensi retensi tepat sasaran.
+3. **🤖 Operasionalkan Model Prediktif** — Terapkan Random Forest untuk menghasilkan daftar nasabah berisiko secara berkala agar intervensi retensi tepat sasaran.
 
 4. **💰 Alokasi Sumber Daya Berbasis Risiko** — Distribusikan insentif retensi secara proporsional terhadap nilai nasabah dan probabilitas churn, bukan disebar merata.
 
