@@ -1,0 +1,276 @@
+<div align="center">
+
+# 🛡️ ChurnShield
+
+### Dashboard Analisis Keputusan Bisnis — Strategi Retensi Nasabah Bank
+
+*Prediksi Customer Churn dengan Pemodelan Multivariat Machine Learning*
+
+---
+
+[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![XGBoost](https://img.shields.io/badge/XGBoost-3.0-00B4D8?style=for-the-badge)](https://xgboost.readthedocs.io)
+[![ApexCharts](https://img.shields.io/badge/ApexCharts-5-6366F1?style=for-the-badge)](https://apexcharts.com)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+</div>
+
+---
+
+## 📋 Daftar Isi
+
+- [Tentang Project](#-tentang-project)
+- [Fitur Utama](#-fitur-utama)
+- [Tech Stack](#-tech-stack)
+- [Dataset](#-dataset)
+- [Model Machine Learning](#-model-machine-learning)
+- [Temuan Kunci](#-temuan-kunci)
+- [Instalasi](#-instalasi)
+- [Data Pipeline](#-data-pipeline-python)
+- [Struktur Halaman](#-struktur-halaman)
+- [Tim](#-tim)
+- [Rekomendasi Bisnis](#-rekomendasi-bisnis)
+
+---
+
+## 🎯 Tentang Project
+
+**ChurnShield** adalah dashboard web interaktif yang menyajikan hasil analisis keputusan bisnis berbasis data untuk memprediksi dan mengurangi *customer churn* pada industri perbankan.
+
+Project ini dibangun untuk mata kuliah **Analisis Keputusan Bisnis** dan menggunakan dataset **Bank Churn** yang terdiri dari **10.000 nasabah** dengan berbagai variabel prediktor.
+
+> 💡 **Inti persoalan:** Keputusan retensi perlu divalidasi data agar dugaan berubah menjadi probabilitas churn yang terukur.
+
+---
+
+## ✨ Fitur Utama
+
+### Landing Page
+- 🎨 Hero section dengan **dashboard mockup interaktif**
+- 🌊 Scroll animations menggunakan **AOS** (Animate On Scroll)
+- 🔢 Animated counters untuk statistik kunci
+- 📱 Fully responsive design
+- 🌙 **Dark/Light mode** toggle (tersimpan di localStorage)
+
+### Dashboard
+- 📊 **Overview** — KPI cards, donut chart, bar chart geografi & usia
+- 👥 **Analisis Demografis** — Churn per negara, usia, gender + tabel detail
+- ⚡ **Analisis Perilaku** — Churn berdasarkan keaktifan, produk, kartu kredit
+- 🤖 **Evaluasi Model** — Radar chart, grouped bar, gauge chart perbandingan 3 model ML
+- 🔮 **Prediksi Churn** — Form interaktif dengan **real ML prediction** (Logistic Regression weights)
+
+### Fitur Tambahan
+- 🌓 Dark/Light mode dengan auto-detect system preference
+- 📱 Responsive sidebar navigation
+- 🎯 Churn Prediction Calculator dengan rekomendasi otomatis
+- 📈 Interactive charts (ApexCharts)
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Backend** | Laravel 13 (PHP 8.4) |
+| **Frontend CSS** | Tailwind CSS 4 |
+| **Charts** | ApexCharts 5 |
+| **Animations** | AOS (Animate On Scroll) |
+| **Build Tool** | Vite 8 |
+| **Fonts** | Inter + Poppins (Bunny Fonts) |
+| **ML Pipeline** | Python 3.12, scikit-learn, XGBoost, pandas, numpy |
+
+---
+
+## 📊 Dataset
+
+- **Sumber:** [Bank Churn Dataset (Kaggle)](https://www.kaggle.com/datasets/mathchi/churn-modelling)
+- **Jumlah Data:** 10.000 nasabah
+- **Variabel:** CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary, Exited (target)
+
+| Variabel | Tipe | Deskripsi |
+|----------|------|-----------|
+| CreditScore | Numerik | Skor kredit nasabah (350-850) |
+| Geography | Kategorikal | Negara: France, Spain, Germany |
+| Gender | Kategorikal | Male / Female |
+| Age | Numerik | Usia nasabah (18-92) |
+| Tenure | Numerik | Lama menjadi nasabah (0-10 tahun) |
+| Balance | Numerik | Saldo rekening |
+| NumOfProducts | Numerik | Jumlah produk yang digunakan (1-4) |
+| HasCrCard | Biner | Memiliki kartu kredit (0/1) |
+| IsActiveMember | Biner | Status keaktifan (0/1) |
+| EstimatedSalary | Numerik | Estimasi gaji tahunan |
+| **Exited** | **Target** | **Churn (1) / Setia (0)** |
+
+---
+
+## 🤖 Model Machine Learning
+
+Tiga model klasifikasi dibangun dan dibandingkan:
+
+| Model | Accuracy | Precision | Recall | F1-Score | Deskripsi |
+|-------|----------|-----------|--------|----------|-----------|
+| Logistic Regression | 84.8% | 58.4% | 88.2% | 70.3% | Baseline, mudah diinterpretasi |
+| Random Forest | 97.5% | 89.9% | 98.8% | 94.1% | Ensemble tree, non-linear |
+| **XGBoost** | **97.5%** | **91.6%** | **96.8%** | **94.1%** | **Gradient boosting, terbaik** |
+
+> 📌 **Evaluasi:** Seluruh model diuji pada data hold-out 20% menggunakan empat metrik — Accuracy, Precision, Recall, dan F1-Score.
+
+---
+
+## 🔍 Temuan Kunci
+
+| Insight | Detail |
+|---------|--------|
+| 📉 **Churn Rate** | 20.4% (1 dari 5 nasabah berhenti) |
+| 🌍 **Geografi** | Germany churn tertinggi (32.4%), hampir 2x lipat France & Spain |
+| 👴 **Usia** | Kelompok 50-59 tahun paling rentan (72.1%) |
+| 👩 **Gender** | Perempuan churn 26.7% vs Laki-laki 15.1% |
+| 💤 **Keaktifan** | Nasabah tidak aktif churn 32.2% vs aktif 9.2% |
+| 📦 **Produk** | 3 produk churn 100%, 4 produk 100% |
+
+---
+
+## 🚀 Instalasi
+
+### Prasyarat
+- PHP >= 8.2
+- Composer
+- Node.js >= 18
+- Python >= 3.10
+- npm
+
+### Langkah Instalasi
+
+```bash
+# 1. Clone repository
+git clone https://github.com/addaan1/ChurnShield-AKB.git
+cd ChurnShield-AKB
+
+# 2. Install dependencies PHP
+composer install
+
+# 3. Install dependencies Node
+npm install
+
+# 4. Copy file environment
+cp .env.example .env
+
+# 5. Generate application key
+php artisan key:generate
+
+# 6. Install Python dependencies
+pip install -r python/requirements.txt
+
+# 7. Generate dataset & jalankan analisis
+python python/generate_data.py
+python python/analysis.py
+
+# 8. Build frontend assets
+npm run build
+
+# 9. Jalankan development server
+php artisan serve
+```
+
+Buka browser di **http://localhost:8000**
+
+### Untuk Development
+
+```bash
+# Terminal 1: Laravel server
+php artisan serve
+
+# Terminal 2: Vite dev server (hot reload)
+npm run dev
+```
+
+---
+
+## 🐍 Data Pipeline (Python)
+
+```
+python/
+├── generate_data.py    # Generate dataset 10.000 nasabah
+├── analysis.py         # EDA + Training 3 model + Export JSON
+└── requirements.txt    # Dependencies Python
+
+dataset/
+└── bank_churn.csv      # Dataset (10.000 rows)
+
+public/data/
+├── eda_results.json    # Hasil EDA (dibaca Laravel)
+├── model_results.json  # Hasil modelling (dibaca Laravel)
+└── model_weights.json  # Koefisien model (untuk prediksi real-time)
+```
+
+```bash
+# Generate dataset
+python python/generate_data.py
+
+# Jalankan EDA + Modelling + Export
+python python/analysis.py
+```
+
+> 💡 Untuk dataset asli Kaggle, download dari [kaggle.com/datasets/mathchi/churn-modelling](https://www.kaggle.com/datasets/mathchi/churn-modelling) dan simpan sebagai `dataset/bank_churn.csv`.
+
+---
+
+## 🗂️ Struktur Halaman
+
+| URL | Halaman | Deskripsi |
+|-----|---------|-----------|
+| `/` | Landing Page | Hero, masalah, fitur, metodologi, tim |
+| `/dashboard` | Overview | KPI cards, donut chart, bar chart |
+| `/dashboard/demographics` | Demografis | Churn per negara, usia, gender |
+| `/dashboard/behavior` | Perilaku | Churn per keaktifan, produk, kartu kredit |
+| `/dashboard/models` | Evaluasi Model | Perbandingan 3 model ML |
+| `/dashboard/predict` | Prediksi Churn | Simulasi prediksi real-time |
+| `/about` | Tentang Tim | Profil anggota kelompok |
+
+---
+
+## 👥 Tim
+
+**Kelompok 1 — Analisis Keputusan Bisnis**
+
+| Nama | NIM |
+|------|-----|
+| Sahrul Adicandra Effendy | 164231013 |
+| Raihan Naufal Sauqi | 164231107 |
+| Aflah Zein Japamel | 164231085 |
+| Muhammad Ilham Gustami | 164231089 |
+| Mohammad Faizal Aprilianto | 164231095 |
+
+---
+
+## 💼 Rekomendasi Bisnis
+
+1. **🎯 Targetkan Segmen Risiko Tinggi** — Prioritaskan nasabah Germany dan usia 50-59 menggunakan skor probabilitas churn dari model XGBoost.
+
+2. **🔄 Reaktivasi Nasabah Pasif** — Jalankan kampanye keterlibatan bagi nasabah tidak aktif yang churn 32.2%, melalui penawaran, notifikasi, dan onboarding ulang.
+
+3. **🤖 Operasionalkan Model Prediktif** — Terapkan XGBoost untuk menghasilkan daftar nasabah berisiko secara berkala agar intervensi retensi tepat sasaran.
+
+4. **💰 Alokasi Sumber Daya Berbasis Risiko** — Distribusikan insentif retensi secara proporsional terhadap nilai nasabah dan probabilitas churn, bukan disebar merata.
+
+5. **📊 Pemantauan Berkelanjutan** — Pantau churn melalui dashboard dan latih ulang model secara periodik mengikuti perubahan perilaku nasabah.
+
+---
+
+## 📄 Lisensi
+
+Project ini dibuat untuk tugas mata kuliah **Analisis Keputusan Bisnis**.
+
+---
+
+<div align="center">
+
+**Dibuat dengan ❤️ oleh Kelompok 1 — Analisis Keputusan Bisnis**
+
+[⬆ Kembali ke atas](#-churnshield)
+
+</div>
