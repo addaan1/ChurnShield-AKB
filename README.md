@@ -113,9 +113,9 @@ Tiga model klasifikasi dibangun dan dibandingkan:
 
 | Model | Accuracy | Precision | Recall | F1-Score | Deskripsi |
 |-------|----------|-----------|--------|----------|-----------|
-| Logistic Regression | 80.1% | 64.2% | 22.0% | 32.8% | Baseline, mudah diinterpretasi |
-| Random Forest | 85.3% | 83.6% | 41.5% | 55.5% | Ensemble tree, non-linear |
-| **XGBoost** | **85.7%** | **81.0%** | **45.6%** | **58.4%** | **Gradient boosting, terbaik** |
+| Logistic Regression | 70.8% | 38.3% | 71.7% | 50.0% | Baseline, mudah diinterpretasi |
+| Random Forest | 84.2% | 60.3% | 66.3% | 63.2% | Ensemble tree, non-linear |
+| **Random Forest** | **84.2%** | **60.3%** | **66.3%** | **63.2%** | **Ensemble tree, terbaik** |
 
 > 📌 **Evaluasi:** Seluruh model diuji pada data hold-out 20% menggunakan empat metrik — Accuracy, Precision, Recall, dan F1-Score.
 
@@ -126,11 +126,11 @@ Tiga model klasifikasi dibangun dan dibandingkan:
 | Insight | Detail |
 |---------|--------|
 | 📉 **Churn Rate** | 20.4% (1 dari 5 nasabah berhenti) |
-| 🌍 **Geografi** | Germany churn tertinggi (32.4%), hampir 2x lipat France (16.2%) & Spain (16.6%) |
-| 👴 **Usia** | Rata-rata usia nasabah churn 44.8 tahun, puncak di kelompok 50-59 tahun |
+| 🌍 **Geografi** | Germany churn tertinggi (32.4%), hampir 2x lipat France (16.2%) & Spain (16.7%) |
+| 👴 **Usia** | Rata-rata usia nasabah churn 44.8 tahun, puncak di kelompok 50-59 tahun (56.0%) |
 | 👩 **Gender** | Perempuan churn 25.1% vs Laki-laki 16.5% |
 | 💤 **Keaktifan** | Nasabah tidak aktif churn 26.9% vs aktif 14.3% |
-| 📦 **Produk** | 3 produk churn 82.7%, 4 produk churn 100% |
+| 📦 **Produk** | 3 produk churn 82.7%, 4 produk churn 100.0% |
 
 ---
 

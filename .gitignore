@@ -28,3 +28,6 @@ Thumbs.db
 /dataset/*.csv
 __pycache__/
 *.pyc
+.kaggle/
+kaggle.json
+python/download_with_token.py

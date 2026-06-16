@@ -1,0 +1,67 @@
+{
+  "models": {
+    "Logistic Regression": {
+      "accuracy": 70.8,
+      "precision": 38.3,
+      "recall": 71.7,
+      "f1": 50.0,
+      "confusion_matrix": [
+        [
+          1123,
+          470
+        ],
+        [
+          115,
+          292
+        ]
+      ]
+    },
+    "Random Forest": {
+      "accuracy": 84.2,
+      "precision": 60.3,
+      "recall": 66.3,
+      "f1": 63.2,
+      "confusion_matrix": [
+        [
+          1415,
+          178
+        ],
+        [
+          137,
+          270
+        ]
+      ]
+    },
+    "XGBoost": {
+      "accuracy": 81.5,
+      "precision": 53.8,
+      "recall": 66.3,
+      "f1": 59.4,
+      "confusion_matrix": [
+        [
+          1361,
+          232
+        ],
+        [
+          137,
+          270
+        ]
+      ]
+    }
+  },
+  "bestModel": "Random Forest",
+  "feature_names": [
+    "CreditScore",
+    "Geography",
+    "Gender",
+    "Age",
+    "Tenure",
+    "Balance",
+    "NumOfProducts",
+    "HasCrCard",
+    "IsActiveMember",
+    "EstimatedSalary"
+  ],
+  "train_size": 8000,
+  "test_size": 2000
+}

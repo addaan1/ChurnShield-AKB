@@ -175,23 +175,23 @@
                             <div class="p-3 rounded-xl bg-slate-800/50 border border-slate-700">
                                 <div class="text-xs text-slate-400 mb-2">Model Terbaik</div>
                                 <div class="flex items-center gap-2 mb-2">
-                                    <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-                                        <span class="text-xs font-bold text-white">XG</span>
+                                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-green-500 flex items-center justify-center">
+                                        <span class="text-xs font-bold text-white">RF</span>
                                     </div>
                                     <div>
-                                        <div class="text-sm font-semibold text-slate-200">XGBoost</div>
-                                        <div class="text-xs text-slate-400">F1: 58.4%</div>
+                                        <div class="text-sm font-semibold text-slate-200">Random Forest</div>
+                                        <div class="text-xs text-slate-400">F1: 63.2%</div>
                                     </div>
                                 </div>
                                 <div class="space-y-1.5">
                                     <div class="h-1.5 rounded-full bg-slate-700">
-                                        <div class="h-1.5 rounded-full gradient-bg" style="width: 85.7%"></div>
+                                        <div class="h-1.5 rounded-full bg-emerald-500" style="width: 84.2%"></div>
                                     </div>
                                     <div class="h-1.5 rounded-full bg-slate-700">
-                                        <div class="h-1.5 rounded-full gradient-bg" style="width: 81%"></div>
+                                        <div class="h-1.5 rounded-full bg-emerald-500" style="width: 60.3%"></div>
                                     </div>
                                     <div class="h-1.5 rounded-full bg-slate-700">
-                                        <div class="h-1.5 rounded-full gradient-bg" style="width: 45.6%"></div>
+                                        <div class="h-1.5 rounded-full bg-emerald-500" style="width: 66.3%"></div>
                                     </div>
                                 </div>
                             </div>
