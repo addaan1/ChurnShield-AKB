@@ -10,13 +10,20 @@ AOS.init({
 
 window.AOS = AOS;
 
+function toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+    const isDarkNow = document.documentElement.classList.contains('dark');
+    localStorage.setItem('darkMode', isDarkNow);
+}
+
 const darkModeToggle = document.getElementById('darkModeToggle');
 if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        const isDarkNow = document.documentElement.classList.contains('dark');
-        localStorage.setItem('darkMode', isDarkNow);
-    });
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+}
+
+const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
+if (darkModeToggleMobile) {
+    darkModeToggleMobile.addEventListener('click', toggleDarkMode);
 }
 
 const counters = document.querySelectorAll('[data-counter]');

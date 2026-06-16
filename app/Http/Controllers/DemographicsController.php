@@ -18,20 +18,20 @@ class DemographicsController extends Controller
         } else {
             $data = [
                 'geography' => [
-                    'France' => ['total' => 5014, 'churn' => 814, 'rate' => 16.2],
+                    'France' => ['total' => 5014, 'churn' => 810, 'rate' => 16.2],
                     'Germany' => ['total' => 2509, 'churn' => 814, 'rate' => 32.4],
-                    'Spain' => ['total' => 2477, 'churn' => 410, 'rate' => 16.6],
+                    'Spain' => ['total' => 2477, 'churn' => 413, 'rate' => 16.7],
                 ],
                 'ageGroups' => [
-                    '18-29' => ['total' => 1842, 'churn' => 282, 'rate' => 15.3],
-                    '30-39' => ['total' => 3452, 'churn' => 538, 'rate' => 15.6],
-                    '40-49' => ['total' => 2478, 'churn' => 489, 'rate' => 19.7],
-                    '50-59' => ['total' => 1847, 'churn' => 612, 'rate' => 33.1],
-                    '60+' => ['total' => 381, 'churn' => 117, 'rate' => 30.7],
+                    '18-29' => ['total' => 1641, 'churn' => 124, 'rate' => 7.6],
+                    '30-39' => ['total' => 4346, 'churn' => 473, 'rate' => 10.9],
+                    '40-49' => ['total' => 2618, 'churn' => 806, 'rate' => 30.8],
+                    '50-59' => ['total' => 869, 'churn' => 487, 'rate' => 56.0],
+                    '60+' => ['total' => 526, 'churn' => 147, 'rate' => 27.9],
                 ],
                 'gender' => [
-                    'Male' => ['total' => 5457, 'churn' => 900, 'rate' => 16.5],
-                    'Female' => ['total' => 4543, 'churn' => 1138, 'rate' => 25.1],
+                    'Female' => ['total' => 4543, 'churn' => 1139, 'rate' => 25.1],
+                    'Male' => ['total' => 5457, 'churn' => 898, 'rate' => 16.5],
                 ],
             ];
         }

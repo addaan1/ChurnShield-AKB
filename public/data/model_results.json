@@ -1,50 +1,50 @@
 {
   "models": {
     "Logistic Regression": {
-      "accuracy": 84.8,
-      "precision": 58.4,
-      "recall": 88.2,
-      "f1": 70.3,
+      "accuracy": 70.8,
+      "precision": 38.3,
+      "recall": 71.7,
+      "f1": 50.0,
       "confusion_matrix": [
         [
-          1337,
-          256
+          1123,
+          470
         ],
         [
-          48,
-          359
+          115,
+          292
         ]
       ]
     },
     "Random Forest": {
-      "accuracy": 97.5,
-      "precision": 89.9,
-      "recall": 98.8,
-      "f1": 94.1,
+      "accuracy": 84.2,
+      "precision": 60.3,
+      "recall": 66.3,
+      "f1": 63.2,
       "confusion_matrix": [
         [
-          1548,
-          45
+          1415,
+          178
         ],
         [
-          5,
-          402
+          137,
+          270
         ]
       ]
     },
     "XGBoost": {
-      "accuracy": 97.5,
-      "precision": 91.6,
-      "recall": 96.8,
-      "f1": 94.1,
+      "accuracy": 81.5,
+      "precision": 53.8,
+      "recall": 66.3,
+      "f1": 59.4,
       "confusion_matrix": [
         [
-          1557,
-          36
+          1361,
+          232
         ],
         [
-          13,
-          394
+          137,
+          270
         ]
       ]
     }

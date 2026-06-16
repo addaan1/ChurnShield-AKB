@@ -78,48 +78,48 @@
         </div>
 
         <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-            <h3 class="font-display font-semibold text-lg mb-4">Model Terbaik: XGBoost</h3>
+            <h3 class="font-display font-semibold text-lg mb-4">Model Terbaik: Random Forest</h3>
             <div class="space-y-4 mt-6">
                 <div>
                     <div class="flex justify-between text-sm mb-2">
                         <span class="text-slate-500 dark:text-slate-400">Accuracy</span>
-                        <span class="font-semibold text-indigo-500">85.7%</span>
+                        <span class="font-semibold text-indigo-500">84.2%</span>
                     </div>
                     <div class="h-3 rounded-full bg-slate-200 dark:bg-slate-700">
-                        <div class="h-3 rounded-full gradient-bg" style="width: 85.7%"></div>
+                        <div class="h-3 rounded-full gradient-bg" style="width: 84.2%"></div>
                     </div>
                 </div>
                 <div>
                     <div class="flex justify-between text-sm mb-2">
                         <span class="text-slate-500 dark:text-slate-400">Precision</span>
-                        <span class="font-semibold text-indigo-500">81.0%</span>
+                        <span class="font-semibold text-indigo-500">60.3%</span>
                     </div>
                     <div class="h-3 rounded-full bg-slate-200 dark:bg-slate-700">
-                        <div class="h-3 rounded-full gradient-bg" style="width: 81%"></div>
+                        <div class="h-3 rounded-full gradient-bg" style="width: 60.3%"></div>
                     </div>
                 </div>
                 <div>
                     <div class="flex justify-between text-sm mb-2">
                         <span class="text-slate-500 dark:text-slate-400">Recall</span>
-                        <span class="font-semibold text-indigo-500">45.6%</span>
+                        <span class="font-semibold text-indigo-500">66.3%</span>
                     </div>
                     <div class="h-3 rounded-full bg-slate-200 dark:bg-slate-700">
-                        <div class="h-3 rounded-full gradient-bg" style="width: 45.6%"></div>
+                        <div class="h-3 rounded-full gradient-bg" style="width: 66.3%"></div>
                     </div>
                 </div>
                 <div>
                     <div class="flex justify-between text-sm mb-2">
                         <span class="text-slate-500 dark:text-slate-400">F1-Score</span>
-                        <span class="font-semibold text-indigo-500">58.4%</span>
+                        <span class="font-semibold text-indigo-500">63.2%</span>
                     </div>
                     <div class="h-3 rounded-full bg-slate-200 dark:bg-slate-700">
-                        <div class="h-3 rounded-full gradient-bg" style="width: 58.4%"></div>
+                        <div class="h-3 rounded-full gradient-bg" style="width: 63.2%"></div>
                     </div>
                 </div>
             </div>
             <div class="mt-6 p-4 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-500/20">
                 <p class="text-sm text-indigo-700 dark:text-indigo-300">
-                    <strong>Insight:</strong> XGBoost memberikan prediksi paling andal dengan F1-Score 58.4%, memastikan anggaran retensi tepat sasaran.
+                    <strong>Insight:</strong> Random Forest memberikan prediksi paling andal dengan F1-Score 63.2%, memastikan anggaran retensi tepat sasaran.
                 </p>
             </div>
         </div>
@@ -131,8 +131,10 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
 const isDark = document.documentElement.classList.contains('dark');
-const textColor = isDark ? '#94A3B8' : '#64748B';
-const gridColor = isDark ? '#334155' : '#E2E8F0';
+const textColor = isDark ? '#94A3B8' : '#475569';
+const gridColor = isDark ? '#334155' : '#CBD5E1';
+const gridConfig = { borderColor: gridColor, strokeDashArray: 3 };
+const labelStyle = { style: { colors: textColor } };
 
 new ApexCharts(document.querySelector("#churnDonut"), {
     series: [{{ $data['nasabahSetia'] }}, {{ $data['nasabahChurn'] }}],
@@ -156,7 +158,7 @@ new ApexCharts(document.querySelector("#churnDonut"), {
                         show: true,
                         label: 'Total',
                         color: textColor,
-                        formatter: () => '10,000'
+                        formatter: () => '{{ number_format($data["totalNasabah"], 0, ",", ",") }}'
                     }
                 }
             }
@@ -196,7 +198,7 @@ new ApexCharts(document.querySelector("#geographyChart"), {
     yaxis: {
         labels: { style: { colors: textColor } },
     },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     dataLabels: {
         enabled: true,
         formatter: (val) => val + '%',
@@ -236,7 +238,7 @@ new ApexCharts(document.querySelector("#ageChart"), {
             formatter: (val) => val + '%'
         },
     },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     dataLabels: {
         enabled: true,
         formatter: (val) => val + '%',

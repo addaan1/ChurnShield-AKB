@@ -18,18 +18,18 @@ class BehaviorController extends Controller
         } else {
             $data = [
                 'activity' => [
-                    'Active' => ['total' => 5164, 'churn' => 739, 'rate' => 14.3],
-                    'Inactive' => ['total' => 4836, 'churn' => 1299, 'rate' => 26.9],
+                    'Inactive' => ['total' => 4849, 'churn' => 1302, 'rate' => 26.9],
+                    'Active' => ['total' => 5151, 'churn' => 735, 'rate' => 14.3],
                 ],
                 'products' => [
-                    '1' => ['total' => 5084, 'churn' => 1013, 'rate' => 19.9],
-                    '2' => ['total' => 4590, 'churn' => 812, 'rate' => 17.7],
+                    '1' => ['total' => 5084, 'churn' => 1409, 'rate' => 27.7],
+                    '2' => ['total' => 4590, 'churn' => 348, 'rate' => 7.6],
                     '3' => ['total' => 266, 'churn' => 220, 'rate' => 82.7],
                     '4' => ['total' => 60, 'churn' => 60, 'rate' => 100.0],
                 ],
                 'creditCard' => [
-                    'Yes' => ['total' => 7055, 'churn' => 1440, 'rate' => 20.4],
-                    'No' => ['total' => 2945, 'churn' => 598, 'rate' => 20.3],
+                    'No' => ['total' => 2945, 'churn' => 613, 'rate' => 20.8],
+                    'Yes' => ['total' => 7055, 'churn' => 1424, 'rate' => 20.2],
                 ],
             ];
         }

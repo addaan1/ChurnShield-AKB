@@ -13,8 +13,8 @@
                 </svg>
             </div>
             <div>
-                <h3 class="font-display font-semibold text-lg">Model Terbaik: XGBoost</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400">F1-Score 58.4% | Accuracy 85.7% | Precision 81.0% | Recall 45.6%</p>
+                <h3 class="font-display font-semibold text-lg">Model Terbaik: {{ $data['bestModel'] }}</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">F1-Score {{ $data['models'][$data['bestModel']]['f1'] }}% | Accuracy {{ $data['models'][$data['bestModel']]['accuracy'] }}% | Precision {{ $data['models'][$data['bestModel']]['precision'] }}% | Recall {{ $data['models'][$data['bestModel']]['recall'] }}%</p>
             </div>
         </div>
     </div>
@@ -116,7 +116,7 @@
                 </div>
                 <div>
                     <h4 class="font-semibold text-sm">Precision Tinggi = Hemat Biaya</h4>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Precision 81.0% memastikan daftar nasabah berisiko akurat sehingga anggaran retensi tidak terbuang pada nasabah loyal.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Precision {{ $data['models'][$data['bestModel']]['precision'] }}% memastikan daftar nasabah berisiko akurat sehingga anggaran retensi tidak terbuang pada nasabah loyal.</p>
                 </div>
             </div>
             <div class="flex items-start gap-3">
@@ -127,7 +127,7 @@
                 </div>
                 <div>
                     <h4 class="font-semibold text-sm">Recall Perlu Ditingkatkan</h4>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Recall 45.6% masih bisa ditingkatkan melalui penyesuaian ambang batas (threshold) dan pembobotan kelas.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Recall {{ $data['models'][$data['bestModel']]['recall'] }}% masih bisa ditingkatkan melalui penyesuaian ambang batas (threshold) dan pembobotan kelas.</p>
                 </div>
             </div>
         </div>
@@ -139,8 +139,9 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
 const isDark = document.documentElement.classList.contains('dark');
-const textColor = isDark ? '#94A3B8' : '#64748B';
-const gridColor = isDark ? '#334155' : '#E2E8F0';
+const textColor = isDark ? '#94A3B8' : '#475569';
+const gridColor = isDark ? '#334155' : '#CBD5E1';
+const gridConfig = { borderColor: gridColor, strokeDashArray: 3 };
 
 new ApexCharts(document.querySelector("#radarChart"), {
     series: [
@@ -188,7 +189,7 @@ new ApexCharts(document.querySelector("#groupedBarChart"), {
         axisBorder: { show: false }
     },
     yaxis: { labels: { style: { colors: textColor }, formatter: (val) => val + '%' }, max: 100 },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     legend: { labels: { colors: textColor } },
     dataLabels: { enabled: false },
 }).render();

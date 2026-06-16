@@ -8,7 +8,7 @@
   "geography": {
     "France": {
       "total": 5014,
-      "churn": 814,
+      "churn": 810,
       "rate": 16.2
     },
     "Germany": {
@@ -18,76 +18,76 @@
     },
     "Spain": {
       "total": 2477,
-      "churn": 409,
-      "rate": 16.5
+      "churn": 413,
+      "rate": 16.7
     }
   },
   "ageGroups": {
     "18-29": {
-      "total": 1932,
-      "churn": 65,
-      "rate": 3.4
+      "total": 1641,
+      "churn": 124,
+      "rate": 7.6
     },
     "30-39": {
-      "total": 3428,
-      "churn": 123,
-      "rate": 3.6
+      "total": 4346,
+      "churn": 473,
+      "rate": 10.9
     },
     "40-49": {
-      "total": 3258,
-      "churn": 851,
-      "rate": 26.1
+      "total": 2618,
+      "churn": 806,
+      "rate": 30.8
     },
     "50-59": {
-      "total": 1195,
-      "churn": 862,
-      "rate": 72.1
+      "total": 869,
+      "churn": 487,
+      "rate": 56.0
     },
     "60+": {
-      "total": 187,
-      "churn": 136,
-      "rate": 72.7
+      "total": 526,
+      "churn": 147,
+      "rate": 27.9
     }
   },
   "gender": {
     "Female": {
       "total": 4543,
-      "churn": 1212,
-      "rate": 26.7
+      "churn": 1139,
+      "rate": 25.1
     },
     "Male": {
       "total": 5457,
-      "churn": 825,
-      "rate": 15.1
+      "churn": 898,
+      "rate": 16.5
     }
   },
   "activity": {
     "Inactive": {
-      "total": 4846,
-      "churn": 1562,
-      "rate": 32.2
+      "total": 4849,
+      "churn": 1302,
+      "rate": 26.9
     },
     "Active": {
-      "total": 5154,
-      "churn": 475,
-      "rate": 9.2
+      "total": 5151,
+      "churn": 735,
+      "rate": 14.3
     }
   },
   "products": {
     "1": {
       "total": 5084,
-      "churn": 848,
-      "rate": 16.7
+      "churn": 1409,
+      "rate": 27.7
     },
     "2": {
       "total": 4590,
-      "churn": 863,
-      "rate": 18.8
+      "churn": 348,
+      "rate": 7.6
     },
     "3": {
       "total": 266,
-      "churn": 266,
-      "rate": 100.0
+      "churn": 220,
+      "rate": 82.7
     },
     "4": {
       "total": 60,
@@ -98,13 +98,13 @@
   "creditCard": {
     "No": {
       "total": 2945,
-      "churn": 597,
-      "rate": 20.3
+      "churn": 613,
+      "rate": 20.8
     },
     "Yes": {
       "total": 7055,
-      "churn": 1440,
-      "rate": 20.4
+      "churn": 1424,
+      "rate": 20.2
     }
   }
 }

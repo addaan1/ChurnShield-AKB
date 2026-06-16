@@ -6,13 +6,22 @@
 @section('content')
 <div class="space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        @php
+            $highestGeo = collect($data['geography'])->sortByDesc('rate')->first();
+            $highestGeoName = collect($data['geography'])->sortByDesc('rate')->keys()->first();
+            $highestAge = collect($data['ageGroups'])->sortByDesc('rate')->first();
+            $highestAgeName = collect($data['ageGroups'])->sortByDesc('rate')->keys()->first();
+            $highestGender = collect($data['gender'])->sortByDesc('rate')->first();
+            $highestGenderName = collect($data['gender'])->sortByDesc('rate')->keys()->first();
+            $avgGenderRate = round(collect($data['gender'])->avg('rate'), 1);
+        @endphp
         <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
             <div class="flex items-center gap-3 mb-2">
                 <div class="w-3 h-3 rounded-full bg-red-500"></div>
                 <span class="text-sm text-slate-500 dark:text-slate-400">Churn Tertinggi</span>
             </div>
-            <h3 class="text-2xl font-display font-bold text-red-500">Germany</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">32.4% churn rate - hampir 2x lipat negara lain</p>
+            <h3 class="text-2xl font-display font-bold text-red-500">{{ $highestGeoName }}</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">{{ $highestGeo['rate'] }}% churn rate</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
@@ -20,8 +29,8 @@
                 <div class="w-3 h-3 rounded-full bg-amber-500"></div>
                 <span class="text-sm text-slate-500 dark:text-slate-400">Usia Paling Rentan</span>
             </div>
-            <h3 class="text-2xl font-display font-bold text-amber-500">50-59 Tahun</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">33.1% churn rate pada kelompok usia ini</p>
+            <h3 class="text-2xl font-display font-bold text-amber-500">{{ $highestAgeName }} Tahun</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">{{ $highestAge['rate'] }}% churn rate pada kelompok usia ini</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
@@ -29,8 +38,8 @@
                 <div class="w-3 h-3 rounded-full bg-purple-500"></div>
                 <span class="text-sm text-slate-500 dark:text-slate-400">Gender Lebih Rentan</span>
             </div>
-            <h3 class="text-2xl font-display font-bold text-purple-500">Perempuan</h3>
-            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">25.1% churn rate vs 16.5% laki-laki</p>
+            <h3 class="text-2xl font-display font-bold text-purple-500">{{ $highestGenderName === 'Female' ? 'Perempuan' : 'Laki-laki' }}</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">{{ $highestGender['rate'] }}% churn rate</p>
         </div>
     </div>
 
@@ -122,8 +131,9 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
 const isDark = document.documentElement.classList.contains('dark');
-const textColor = isDark ? '#94A3B8' : '#64748B';
-const gridColor = isDark ? '#334155' : '#E2E8F0';
+const textColor = isDark ? '#94A3B8' : '#475569';
+const gridColor = isDark ? '#334155' : '#CBD5E1';
+const gridConfig = { borderColor: gridColor, strokeDashArray: 3 };
 
 new ApexCharts(document.querySelector("#geoBarChart"), {
     series: [{
@@ -139,7 +149,7 @@ new ApexCharts(document.querySelector("#geoBarChart"), {
     colors: ['#EF4444'],
     xaxis: { labels: { style: { colors: textColor } }, axisBorder: { show: false } },
     yaxis: { labels: { style: { colors: textColor }, formatter: (val) => val + '%' } },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     dataLabels: { enabled: true, formatter: (val) => val + '%', style: { colors: ['#fff'] } },
 }).render();
 
@@ -163,7 +173,7 @@ new ApexCharts(document.querySelector("#geoGroupedChart"), {
         axisBorder: { show: false }
     },
     yaxis: { labels: { style: { colors: textColor } } },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     legend: { labels: { colors: textColor } },
 }).render();
 
@@ -181,7 +191,7 @@ new ApexCharts(document.querySelector("#ageBarChart"), {
     colors: ['#F59E0B'],
     xaxis: { labels: { style: { colors: textColor } }, axisBorder: { show: false } },
     yaxis: { labels: { style: { colors: textColor }, formatter: (val) => val + '%' } },
-    grid: { borderColor: gridColor },
+    grid: gridConfig,
     dataLabels: { enabled: true, formatter: (val) => val + '%', style: { colors: ['#fff'] } },
 }).render();
 
@@ -200,7 +210,7 @@ new ApexCharts(document.querySelector("#genderChart"), {
             donut: {
                 labels: {
                     show: true,
-                    total: { show: true, label: 'Avg Churn', color: textColor, formatter: () => '20.8%' }
+                    total: { show: true, label: 'Avg Churn', color: textColor, formatter: () => '{{ $avgGenderRate }}%' }
                 }
             }
         }
